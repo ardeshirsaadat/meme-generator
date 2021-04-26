@@ -3,7 +3,7 @@ from quotemodel import QuoteModel
 import docx
 
 
-class docxIngestor(IngestorInterface):
+class DOCXIngestor(IngestorInterface):
     files = ['docx']
 
     @classmethod
