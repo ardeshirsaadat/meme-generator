@@ -25,9 +25,9 @@ class IngestorInterface(ABC):
 
     @classmethod
     @abstractmethod
-    """
+    def parse(cls, path):
+        """
         Returns a parsed version of
         a file type
         """
-    def parse(cls, path):
-        pass
+    pass
