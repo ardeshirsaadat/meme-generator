@@ -4,10 +4,18 @@ import docx
 
 
 class DOCXIngestor(IngestorInterface):
+    """
+    This class inherits from
+    IngestorInterface class
+    and handles 'docx' file types
+    """
     files = ['docx']
 
     @classmethod
     def parse(cls, path):
+        """
+        Returns a valid QuoteModel
+        """
         quotes = []
         if cls.can_ingest(path):
             file_docx = docx.Document(path)

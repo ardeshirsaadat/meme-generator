@@ -3,10 +3,18 @@ from .quotemodel import QuoteModel
 
 
 class TXTIngestor(IngestorInterface):
+    """
+    This class inherits from
+    IngestorInterface class,
+    and handles 'txt' file types
+    """
     files = ['txt']
 
     @classmethod
     def parse(cls, path):
+        """
+        Returns a valid QuoteModel
+        """
         quotes = []
         if cls.can_ingest(path):
             r = open(path, 'r')

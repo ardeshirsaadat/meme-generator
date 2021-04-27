@@ -7,10 +7,20 @@ from .txtIngestor import TXTIngestor
 
 
 class Ingestor(IngestorInterface):
+    """
+    This class encapsulates all
+    the ingestors to provide one
+    interface to load any
+    supported file type.
+    """
     files = ['pdf', 'txt', 'docx', 'csv']
 
     @classmethod
     def parse(cls, path):
+        """
+        Picks the right ingestor
+        and returns a QuoteModel
+        """
 
         extenstion = path.split('.')[-1]
         try:

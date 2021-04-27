@@ -5,10 +5,18 @@ import random
 
 
 class PDFIngestor(IngestorInterface):
+    """
+    This class inherits from
+    IngestorInterface class
+    and handles 'pdf' file types
+    """
     files = ['pdf']
 
     @classmethod
     def parse(cls, path):
+        """
+        Returns a valid QuoteModel
+        """
         quotes = []
         if cls.can_ingest(path):
             tmp = f'../tmp/{random.randint(1,100)}.txt'
