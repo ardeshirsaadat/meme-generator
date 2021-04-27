@@ -11,7 +11,7 @@ Accept dynamic user input through a command-line tool and a web service. This em
 
 # How to set up app:
 
-All dependecies ar in 'requirement.txt'
+All dependecies are in 'requirement.txt'
 The project contains a simple cli app starter code in meme.py
 
 - The script takes three optional CLI arguments:
@@ -59,3 +59,10 @@ It uses the requests package to fetch an image from a user submitted URL
 - The parse method returns a valid QuoteModel
 
 All ingestors are packaged into a main Ingestor class. This class encapsulates all the ingestors to provide one interface to load any supported file type.
+
+# How to Run this app:
+
+1. Make sure to install all dependecies `pip install -r requirement.txt`
+2. There are two options to interact with this app:
+   1. Run flask app `python app.py` this command will trigger this python app as a service through http protocol based on flask framework on your local computer which it can be accessed by a browser
+   2. Run meme.py `python meme.py --path --body --author` all optoins are optional and if not specified, the app will randomly create one for you in the root path
