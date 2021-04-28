@@ -24,7 +24,6 @@ class MemeEngine:
         """
         try:
             text = f'{text}-{author}'
-            image_extenstion = img_path.split('.')[-1]
             im = Image.open(img_path)
             ratio = width / float(im.size[0])
             height = int(ratio * float(im.size[1]))
@@ -33,7 +32,7 @@ class MemeEngine:
             draw.text((random.randint(0, width),
                       (random.randint(0, height))), text)
             tmp = f'{random.randint(1,100)}'
-            output = f'{self.output_dir}{tmp}.{image_extenstion}'
+            output = f'{self.output_dir}{img_path}'
             image_resized.save(output)
             return output
         except Exception as e:
