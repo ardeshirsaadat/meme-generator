@@ -23,6 +23,7 @@ def setup():
     for quote_file in quote_files:
         Quotes = Ingestor.parse(quote_file)
         for quote in Quotes:
+            print(quote)
             quotes.append(quote)
 
     images_path = "./_data/photos/dog/"
