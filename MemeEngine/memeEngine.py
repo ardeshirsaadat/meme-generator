@@ -32,6 +32,7 @@ class MemeEngine:
             draw.text((random.randint(0, width),
                       (random.randint(0, height))), text)
             tmp = f'{random.randint(1,100)}'
+            img_path = img_path.split('/')[-1]
             output = f'{self.output_dir}{img_path}'
             image_resized.save(output)
             return output
