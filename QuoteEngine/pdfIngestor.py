@@ -21,7 +21,9 @@ class PDFIngestor(IngestorInterface):
         quotes = []
         if cls.can_ingest(path):
             tmp = f'./{random.randint(1,100)}.txt'
-            subprocess.run(['pdftotext', '-simple', path, tmp])
+            subprocess.call(['pdftotext', path, tmp])
+            # cmd = r"""{} "{}" "{}" -enc UTF-8""".format('pdftotext', path, tmp)
+            # subprocess.run(cmd, shell=True, stderr=subprocess.STDOUT)
             r = open(tmp, 'r')
             for line in r.readlines():
                 line = line.strip('\n\r').strip()
@@ -30,7 +32,7 @@ class PDFIngestor(IngestorInterface):
                     quote = QuoteModel(line[0], line[1])
                     quotes.append(quote)
             r.close()
-            os.remove(tmp)
+            # os.remove(tmp)
             return quotes
         else:
             raise Exception('This file can not be read')
