@@ -30,15 +30,16 @@ class MemeEngine:
             height = int(ratio * float(im.size[1]))
             image_resized = im.resize((width, height), Image.NEAREST)
             draw = ImageDraw.Draw(image_resized)
+            font = ImageFont.truetype('./fonts/LilitaOne-Regular.ttf', size=20)
             # for the wrapper I got help from https://stackoverflow.com/questions/8257147/wrap-text-in-pi
             wrapper = textwrap.TextWrapper(width=50)
             word_lst = wrapper.wrap(text=text_comb)
             text_new = ''
             for word in word_lst[:-1]:
                 text_new = text_new + word + '\n'
-                text_new += word_lst[-1]
+            text_new += word_lst[-1]
             draw.text((random.randint(0, width),
-                      (random.randint(0, height))), text_new)
+                      (random.randint(0, height))), text_new, font=font)
             tmp = f'{random.randint(1,100)}'
             img_path = img_path.split('/')[-1]
             output = f'{self.output_dir}{img_path}'
